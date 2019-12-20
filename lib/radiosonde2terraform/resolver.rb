@@ -1,4 +1,5 @@
 require 'erb'
+require 'aws-sdk-cloudwatch'
 require 'radiosonde'
 
 module Radiosonde2terraform
@@ -13,6 +14,7 @@ module Radiosonde2terraform
     # @return [String] the generated .tf file
     def to_tf_conf(filepath)
       alarms = parse_conf(filepath)
+      pp alarms
       ERB.new(cloudwatch_alarm_template, trim_mode: '-').result(binding)
     end
 
@@ -52,6 +54,9 @@ module Radiosonde2terraform
           <%- end -%>
         }
         threshold                 = <%= resource.threshold %>
+        <%- if resource.respond_to?(:treat_missing_data) -%>
+        treat_missing_data        = "<%= resource.treat_missing_data %>"
+        <%- end -%>
       }
       <%- end -%>
       TEMPLATE

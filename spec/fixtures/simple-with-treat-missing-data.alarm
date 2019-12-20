@@ -1,0 +1,14 @@
+alarm "foo-bar-alarm" do
+  namespace "AWS/Lambda"
+  metric_name "Errors"
+  dimensions "FunctionName"=>"foo-bar"
+  period 60
+  statistic :sum
+  threshold ">=", 1.0
+  evaluation_periods 1
+  actions_enabled true
+  alarm_actions ["arn:aws:sns:ap-northeast-1:999999999999:foo-notification"]
+  ok_actions []
+  insufficient_data_actions []
+  treat_missing_data "missing"
+end
