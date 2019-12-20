@@ -12,7 +12,7 @@ RSpec.describe Radiosonde2terraform::Resolver do
   describe "#to_tf_conf" do
     context 'with single configuration' do
       it "does something useful" do
-        filepath = "../../spec/fixtures/simple.alarm"
+        filepath = File.join(__dir__, "fixtures/simple.alarm")
         actual = resolver.to_tf_conf(filepath)
 
         expected = <<~CONF

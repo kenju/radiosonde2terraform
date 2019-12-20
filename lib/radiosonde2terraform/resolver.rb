@@ -21,8 +21,7 @@ module Radiosonde2terraform
     # @param [String] filepath
     # @return [Array<Radiosonde::DSL::Context::Alarm>]
     def parse_conf(filepath)
-      file = File.join(__dir__, filepath)
-      dsl = open(file) { |f| Radiosonde::DSL.parse(f.read, file) }
+      dsl = open(filepath) { |f| Radiosonde::DSL.parse(f.read, filepath) }
       dsl.alarms
     end
 
