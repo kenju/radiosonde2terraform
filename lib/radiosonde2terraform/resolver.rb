@@ -14,7 +14,6 @@ module Radiosonde2terraform
     # @return [String] the generated .tf file
     def to_tf_conf(filepath)
       alarms = parse_conf(filepath)
-      pp alarms
       ERB.new(cloudwatch_alarm_template, trim_mode: '-').result(binding)
     end
 
