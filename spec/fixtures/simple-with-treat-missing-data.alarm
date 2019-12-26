@@ -1,5 +1,6 @@
 alarm "foo-bar-alarm" do
   namespace "AWS/Lambda"
+  description "here is my description"
   metric_name "Errors"
   dimensions "FunctionName"=>"foo-bar"
   period 60
