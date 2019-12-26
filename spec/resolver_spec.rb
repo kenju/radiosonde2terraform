@@ -18,9 +18,9 @@ RSpec.describe Radiosonde2terraform::Resolver do
         resource "aws_cloudwatch_metric_alarm" "foo-bar-alarm" {
           actions_enabled           = "true"
           alarm_actions             = ["arn:aws:sns:ap-northeast-1:999999999999:foo-notification"]
+          alarm_description         = ""
           alarm_name                = "foo-bar-alarm"
           comparison_operator       = "GreaterThanOrEqualToThreshold"
-          alarm_description         = ""
           dimensions                = {
             FunctionName = "foo-bar"
           }
@@ -51,9 +51,9 @@ RSpec.describe Radiosonde2terraform::Resolver do
         resource "aws_cloudwatch_metric_alarm" "foo-bar-alarm" {
           actions_enabled           = "true"
           alarm_actions             = ["arn:aws:sns:ap-northeast-1:999999999999:foo-notification"]
+          alarm_description         = "here is my description"
           alarm_name                = "foo-bar-alarm"
           comparison_operator       = "GreaterThanOrEqualToThreshold"
-          alarm_description         = "here is my description"
           dimensions                = {
             FunctionName = "foo-bar"
           }

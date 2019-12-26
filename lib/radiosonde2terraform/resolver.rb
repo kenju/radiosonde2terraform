@@ -32,9 +32,9 @@ module Radiosonde2terraform
       resource "aws_cloudwatch_metric_alarm" "<%= resource.alarm_name %>" {
         actions_enabled           = "<%= resource.actions_enabled %>"
         alarm_actions             = <%= resource.alarm_actions %>
+        alarm_description         = "<%= resource.alarm_description %>"
         alarm_name                = "<%= resource.alarm_name %>"
         comparison_operator       = "<%= resource.comparison_operator %>"
-        alarm_description         = "<%= resource.alarm_description %>"
         dimensions                = {
           <%- resource.dimensions.each do |dimension| -%>
           <%= dimension[:name] %> = "<%= dimension[:value] %>"
