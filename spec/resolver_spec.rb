@@ -20,6 +20,7 @@ RSpec.describe Radiosonde2terraform::Resolver do
           alarm_actions             = ["arn:aws:sns:ap-northeast-1:999999999999:foo-notification"]
           alarm_name                = "foo-bar-alarm"
           comparison_operator       = "GreaterThanOrEqualToThreshold"
+          description               = ""
           dimensions                = {
             FunctionName = "foo-bar"
           }
@@ -52,6 +53,7 @@ RSpec.describe Radiosonde2terraform::Resolver do
           alarm_actions             = ["arn:aws:sns:ap-northeast-1:999999999999:foo-notification"]
           alarm_name                = "foo-bar-alarm"
           comparison_operator       = "GreaterThanOrEqualToThreshold"
+          description               = "here is my description"
           dimensions                = {
             FunctionName = "foo-bar"
           }
