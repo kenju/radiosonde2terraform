@@ -34,7 +34,7 @@ module Radiosonde2terraform
         alarm_actions             = <%= resource.alarm_actions %>
         alarm_name                = "<%= resource.alarm_name %>"
         comparison_operator       = "<%= resource.comparison_operator %>"
-        description               = "<%= resource.alarm_description %>"
+        alarm_description         = "<%= resource.alarm_description %>"
         dimensions                = {
           <%- resource.dimensions.each do |dimension| -%>
           <%= dimension[:name] %> = "<%= dimension[:value] %>"
